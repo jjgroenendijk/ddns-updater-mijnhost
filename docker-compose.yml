@@ -1,0 +1,9 @@
+services:
+  ddns-updater:
+    build: .
+    container_name: mijnhost_ddns_updater
+    restart: unless-stopped
+    environment:
+      - MIJNHOST_API_KEY=${MIJNHOST_API_KEY}
+    volumes:
+      - ./config:/app/config

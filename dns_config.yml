@@ -1,0 +1,29 @@
+# dns_config.yml
+# Dynamic DNS Configuration File
+
+global_settings:
+  # last_known_ip: "1.2.3.4" # Optional: Script will populate this on first successful update if missing.
+  check_interval_seconds: 30 # How often to check for IP changes (in seconds). Default: 300
+  public_ip_service_url: "https://api.ipify.org?format=json" # Service to get public IP. Default: https://api.ipify.org?format=json
+
+domains:
+  - domain_name: "example.com" # Replace with your actual domain name
+    records:
+      - name: "test3"        # For the root domain (e.g., example.com)
+        type: "A"        # "A" for IPv4, "AAAA" for IPv6
+        ttl: 900         # Time To Live in seconds (e.g., 900 for 15 minutes)
+      
+      - name: "www"      # For a subdomain (e.g., www.example.com)
+        type: "A"
+        ttl: 900
+      
+      # - name: "home"
+      #   type: "A"
+      #   ttl: 1800
+
+  # Add more domain configurations if needed:
+  # - domain_name: "another-example.net"
+  #   records:
+  #     - name: "test"
+  #       type: "A"
+  #       ttl: 3600
